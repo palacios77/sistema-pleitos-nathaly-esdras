@@ -1,0 +1,59 @@
+<div class="container mt-4">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Sistema de Pleitos</h2>
+
+    <button
+      type="button"
+      class="btn btn-danger"
+      (click)="cerrarSesion()">
+      Cerrar sesión
+    </button>
+  </div>
+
+  <div class="jumbotron">
+    <h3>Bienvenido al sistema</h3>
+
+    <p>
+      En el cual se registra quién es siempre el problema (Nathaly)
+      y me muestra a mí como inocente (Esdras).
+    </p>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-4 mb-3">
+      <a
+        routerLink="/pleitos"
+        class="btn btn-dark btn-block">
+        Registrar y consultar pleitos
+      </a>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <a
+        routerLink="/personas"
+        class="btn btn-dark btn-block">
+        Registrar personas
+      </a>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <a
+        routerLink="/evidencias"
+        class="btn btn-dark btn-block">
+        Fotos y documentos
+      </a>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <a
+        routerLink="/historial"
+        class="btn btn-dark btn-block">
+        Historial de pleitos
+      </a>
+    </div>
+
+  </div>
+
+</div>

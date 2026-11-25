@@ -1,0 +1,96 @@
+<div class="container mt-4">
+
+  <h2 class="text-center mb-4">Registro de Personas</h2>
+
+  <div class="card mb-4">
+    <div class="card-header bg-dark text-white">
+      {{ idEditar ? 'Editar persona' : 'Registrar persona' }}
+    </div>
+
+    <div class="card-body">
+      <form (ngSubmit)="guardarPersona()">
+
+        <div class="form-group">
+          <label>Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nombre"
+            [(ngModel)]="persona.nombre"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Edad</label>
+          <input
+            type="number"
+            class="form-control"
+            name="edad"
+            [(ngModel)]="persona.edad"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Descripción</label>
+          <textarea
+            class="form-control"
+            name="descripcion"
+            [(ngModel)]="persona.descripcion"
+            rows="3">
+          </textarea>
+        </div>
+
+        <button type="submit" class="btn btn-dark">
+          {{ idEditar ? 'Actualizar' : 'Guardar persona' }}
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-secondary ml-2"
+          (click)="limpiarFormulario()">
+          Limpiar
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+  <h4>Personas registradas</h4>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+
+      <thead class="thead-dark">
+        <tr>
+          <th>Nombre</th>
+          <th>Edad</th>
+          <th>Descripción</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let p of personas">
+          <td>{{ p.nombre }}</td>
+          <td>{{ p.edad }}</td>
+          <td>{{ p.descripcion }}</td>
+          <td>
+            <button
+              class="btn btn-warning btn-sm"
+              (click)="editarPersona(p)">
+              Editar
+            </button>
+
+            <button
+              class="btn btn-danger btn-sm ml-1"
+              (click)="eliminarPersona(p.id!)">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+</div>

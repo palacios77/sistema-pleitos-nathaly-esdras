@@ -1,0 +1,131 @@
+<div class="container mt-4">
+
+  <h2 class="text-center mb-4">Registro de Pleitos</h2>
+
+  <div class="card mb-4">
+    <div class="card-header bg-dark text-white">
+      {{ idEditar ? 'Editar pleito' : 'Registrar nuevo pleito' }}
+    </div>
+
+    <div class="card-body">
+      <form (ngSubmit)="guardarPleito()">
+
+        <div class="form-group">
+          <label>Persona 1</label>
+          <input
+            type="text"
+            class="form-control"
+            name="persona1"
+            [(ngModel)]="pleito.persona1"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Persona 2</label>
+          <input
+            type="text"
+            class="form-control"
+            name="persona2"
+            [(ngModel)]="pleito.persona2"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Motivo del pleito</label>
+          <input
+            type="text"
+            class="form-control"
+            name="motivo"
+            [(ngModel)]="pleito.motivo"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Fecha</label>
+          <input
+            type="date"
+            class="form-control"
+            name="fecha"
+            [(ngModel)]="pleito.fecha"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label>Descripción</label>
+          <textarea
+            class="form-control"
+            name="descripcion"
+            [(ngModel)]="pleito.descripcion"
+            rows="3"
+            required>
+          </textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Estado</label>
+          <select
+            class="form-control"
+            name="estado"
+            [(ngModel)]="pleito.estado">
+            <option value="Pendiente">Pendiente</option>
+            <option value="Resuelto">Resuelto</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-dark">
+          {{ idEditar ? 'Actualizar' : 'Guardar pleito' }}
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-secondary ml-2"
+          (click)="limpiarFormulario()">
+          Limpiar
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+  <h4>Historial de pleitos</h4>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+
+      <thead class="thead-dark">
+        <tr>
+          <th>Personas</th>
+          <th>Motivo</th>
+          <th>Fecha</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let p of pleitos">
+          <td>{{ p.persona1 }} y {{ p.persona2 }}</td>
+          <td>{{ p.motivo }}</td>
+          <td>{{ p.fecha }}</td>
+          <td>{{ p.estado }}</td>
+          <td>
+            <button
+              class="btn btn-warning btn-sm"
+              (click)="editarPleito(p)">
+              Editar
+            </button>
+
+            <button
+              class="btn btn-danger btn-sm ml-1"
+              (click)="eliminarPleito(p.id!)">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+</div>
+

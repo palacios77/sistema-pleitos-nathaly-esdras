@@ -14,9 +14,12 @@
     "@angular/common": "^22.1.0",
     "@angular/compiler": "^22.1.0",
     "@angular/core": "^22.1.0",
+    "@angular/fire": "22.0.0-rc.1",
     "@angular/forms": "^22.1.0",
     "@angular/platform-browser": "^22.1.0",
     "@angular/router": "^22.1.0",
+    "bootstrap": "^4.6.2",
+    "firebase": "^13.4.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

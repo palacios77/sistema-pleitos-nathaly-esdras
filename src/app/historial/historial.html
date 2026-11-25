@@ -1,0 +1,37 @@
+<div class="container mt-4">
+
+  <h2 class="text-center mb-4">Historial de Pleitos</h2>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+
+      <thead class="thead-dark">
+        <tr>
+          <th>Persona 1</th>
+          <th>Persona 2</th>
+          <th>Motivo</th>
+          <th>Fecha</th>
+          <th>Descripción</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let p of pleitos">
+          <td>{{ p.persona1 }}</td>
+          <td>{{ p.persona2 }}</td>
+          <td>{{ p.motivo }}</td>
+          <td>{{ p.fecha }}</td>
+          <td>{{ p.descripcion }}</td>
+          <td>{{ p.estado }}</td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+  <div *ngIf="pleitos.length === 0" class="alert alert-info">
+    No hay pleitos registrados.
+  </div>
+
+</div>
